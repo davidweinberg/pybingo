@@ -1,0 +1,9 @@
+project:
+  output-dir: _docs
+
+website:
+  title: "pybingo"
+  site-url: "https://davidweinberg.github.io/pybingo"
+  description: "Bingo Game in Python"
+  repo-branch: main
+  repo-url: "https://github.com/davidweinberg/pybingo"

@@ -1,0 +1,18 @@
+[tool.poetry]
+name = "pybingo"
+version = "0.1.0"
+description = "Bingo Game in Python"
+authors = ["David Weinberg <weinbergphp@gmail.com>"]
+license = "MIT"
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.10"
+nbdev = "^2.3.12"
+jupyterlab-quarto = "^0.2.7"
+jupyterlab = "^4.0.2"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
