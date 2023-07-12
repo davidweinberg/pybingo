@@ -1,7 +1,7 @@
 [tool.poetry]
 name = "pybingo"
 version = "0.1.0"
-description = "a python bingo game"
+description = "python bingo module"
 authors = ["David Weinberg <weinbergphp@gmail.com>"]
 license = "MIT"
 readme = "README.md"
@@ -9,8 +9,8 @@ readme = "README.md"
 [tool.poetry.dependencies]
 python = "^3.10"
 jupyterlab = "^4.0.2"
-nbdev = "^2.3.12"
 jupyterlab-quarto = "^0.2.7"
+nbdev = "^2.3.12"
 
 
 [build-system]
