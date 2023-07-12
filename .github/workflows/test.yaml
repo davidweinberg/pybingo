@@ -6,7 +6,5 @@ jobs:
     runs-on: ubuntu-latest
     steps: 
     - uses: fastai/workflows/nbdev-ci@master
-    - uses: actions/setup-python@v1
       with:
-        python-version: '3.10'
-        architecture: 'x64'
+        version: '3.10'
