@@ -15,4 +15,5 @@ d = { 'settings': { 'branch': 'main',
                                    'pybingo.BingoCard.BingoCard.updateBingo': ( 'bingocard.html#bingocard.updatebingo',
                                                                                 'pybingo/BingoCard.py'),
                                    'pybingo.BingoCard.BingoCard.updateCard': ( 'bingocard.html#bingocard.updatecard',
-                                                                               'pybingo/BingoCard.py')}}}
+                                                                               'pybingo/BingoCard.py')},
+            'pybingo.core': {'pybingo.core.foo': ('core.html#foo', 'pybingo/core.py')}}}

@@ -1,16 +1,16 @@
 [tool.poetry]
 name = "pybingo"
 version = "0.1.0"
-description = "python bingo module"
+description = "solution to a AOC challenged, related to bingo"
 authors = ["David Weinberg <weinbergphp@gmail.com>"]
-license = "Apache-2.0"
+license = "Apache2.0"
 readme = "README.md"
 
 [tool.poetry.dependencies]
 python = "^3.10"
-jupyterlab = "^4.0.2"
-jupyterlab-quarto = "^0.2.7"
 nbdev = "^2.3.12"
+jupyterlab = "^4.0.3"
+jupyterlab-quarto = "^0.2.8"
 
 
 [build-system]
