@@ -31,15 +31,17 @@ class BingoCard:
 
 
     def loadCard(self,data):
+        "Loads the data provided into the Bingo card"
         for i in range(5):
             for j in range(5):
                 choice = int(data[i][j])
                 self.playBoard[i][j] = choice
                 self.position[choice] = (i,j)
 
-    def updateCard(self, 
-                   val:int # Number to find on card and mark as X
-                  ):        
+    def updateCard(self,
+                   val:int
+                  ):    
+        "Searches for the value provided, if found, will mark it with an X."
         try:
             x,y = self.position[val]
             self.playBoard[x][y] = 'X'
@@ -48,6 +50,14 @@ class BingoCard:
             if self.checkBingo(): self.won = True
         except KeyError:
             return
+
+    def isSelected(self, x:int, y:int):
+        "Check if a location has an 'X'"
+        return self.playBoard[x][y] == 'X'
+
+    def isWinner(self):
+        "Checks if the card has won Bingo"
+        return (self.won)
 
     def updateBingo(self, 
                     x:int, # x position 
