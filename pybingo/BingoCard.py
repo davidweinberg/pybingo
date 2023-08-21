@@ -87,6 +87,9 @@ class BingoCard:
                 if j!='X':                   
                     total += int(j)
         return total
+
+    def displayCard():
+        print(self)
         
     def __str__(self):
         result = ""
