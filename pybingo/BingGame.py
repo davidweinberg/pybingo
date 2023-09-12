@@ -5,10 +5,15 @@ __all__ = ['BingoGame']
 
 # %% ../nbs/02_BingoGame.ipynb 3
 class BingoGame:
-    def __init__(self):
+    "Class that will run a bingo game using pybingo.BingCard as the storage model"
+    def __init__(self, fname:str=""):
         self.cards = []
         self.pulled = []
         self.winner = -1
+        self.last_pulled = -1
+        
+        if fname:
+            self.loadGame(fname)
     
     def displayGame(self):        
         print ("============")
@@ -17,6 +22,7 @@ class BingoGame:
             print ()
 
     def pick(self,index):        
+        self.last_pulled = int(self.pulled[index])
         for card in self.cards:            
             card.updateCard(int(self.pulled[index]))
 
@@ -29,6 +35,19 @@ class BingoGame:
         return False
 
     def play(self):
+        "Go through each of the pulled numbers and apply them to the BingoCards. If a winner is found, then do the calculations required on the BingoCard."
+        for i in range(len(self.pulled)):
+            self.pick(i)
+            
+            if self.checkBingo():
+                self.printWinSummary()
+                return
+    
+
+    
+    """
+    def play(self):
+        "Go through each of the pulled numbers and apply them to the BingoCards. If a winner is found, then do the calculations required on the BingoCard."
         for i in range(len(self.pulled)):
             self.pick(i)
             
@@ -43,7 +62,38 @@ class BingoGame:
                 result = int(boardsum) * int(self.pulled[i])
                 print (f"{result=}")                
                 return
+                """
 
+    """
+    def play(self):
+        "Go through each of the pulled numbers and apply them to the BingoCards. If a winner is found, then do the calculations required on the BingoCard."
+        for i in range(len(self.pulled)):
+            self.pick(i)
+            
+            if self.checkBingo():
+                return
+                """
+                
+    def calcBoardSum(self, card_index: int):        
+        boardsum = self.cards[card_index].sumBoard()
+        return boardsum
+
+    def calcResult(self, boardsum: int, pulled: int):
+        result = int(boardsum) * int(pulled)
+        return result
+
+    def printWinSummary(self):
+        if self.winner:
+            print ("Winner is "+str(self.winner))            
+            print (self.cards[self.winner])
+                
+            boardsum = self.calcBoardSum(self.winner)
+            print (f"{boardsum=}")
+            print ("last pull="+str(self.last_pulled))
+                
+            result = self.calcResult(boardsum, self.last_pulled)
+            print (f"{result=}")                
+        
     def numWinners(self):
         total = 0
         for card in self.cards:
@@ -53,6 +103,7 @@ class BingoGame:
             
             
     def lastToWin(self):
+        "Calculate the value of the last card to win bingo."
         last_win = 0
         for i in range(len(self.pulled)):
             self.pick(i)
@@ -71,7 +122,8 @@ class BingoGame:
                 print (f"{result=}")
                 return
 
-    def loadGame(self,file_name):
+    def loadGame(self,file_name:str):
+        "Will load the data from a game file."
         with open(file_name, 'r') as data_file:
             data = []
             for index, line in enumerate(data_file):
