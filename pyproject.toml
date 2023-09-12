@@ -6,6 +6,10 @@ authors = ["David Weinberg <weinbergphp@gmail.com>"]
 license = "Apache2.0"
 readme = "README.md"
 
+packages = [
+    { include = "./pybingo" },
+]
+
 [tool.poetry.dependencies]
 python = "^3.10"
 nbdev = "^2.3.12"
