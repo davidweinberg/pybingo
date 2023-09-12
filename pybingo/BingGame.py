@@ -84,7 +84,7 @@ class BingoGame:
                     last_win = j
 
             if len(self.cards) - self.numWinners() == 0: 
-                print ("Winner is "+str(last_win+1))
+                print ("Winner is "+str(last_win))
                 print (self.cards[last_win])
                 boardsum = self.cards[last_win].sumBoard()
                 print (f"{boardsum=}")
