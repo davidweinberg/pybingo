@@ -18,7 +18,7 @@ class BingoGame:
     def displayGame(self):        
         print ("============")
         for card in self.cards:            
-            card.displayCard()
+            print (card)
             print ()
 
     def pick(self,index):        
@@ -42,39 +42,9 @@ class BingoGame:
             if self.checkBingo():
                 self.printWinSummary()
                 return
-    
-
-    
-    """
-    def play(self):
-        "Go through each of the pulled numbers and apply them to the BingoCards. If a winner is found, then do the calculations required on the BingoCard."
-        for i in range(len(self.pulled)):
-            self.pick(i)
-            
-            if self.checkBingo():
-                print ("Winner is "+str(self.winner))            
-                print (self.cards[self.winner])
                 
-                boardsum = self.cards[self.winner].sumBoard()
-                print (f"{boardsum=}")
-                print ("last pull="+self.pulled[i])
-                
-                result = int(boardsum) * int(self.pulled[i])
-                print (f"{result=}")                
-                return
-                """
-
-    """
-    def play(self):
-        "Go through each of the pulled numbers and apply them to the BingoCards. If a winner is found, then do the calculations required on the BingoCard."
-        for i in range(len(self.pulled)):
-            self.pick(i)
-            
-            if self.checkBingo():
-                return
-                """
-                
-    def calcBoardSum(self, card_index: int):        
+    def calcBoardSum(self, card_index: int):
+        "Calculate the value of the board by summing all non-picked numbers"
         boardsum = self.cards[card_index].sumBoard()
         return boardsum
 
@@ -107,12 +77,14 @@ class BingoGame:
         last_win = 0
         for i in range(len(self.pulled)):
             self.pick(i)
+            
             for j in range(len(self.cards)):
                 if not self.cards[j].won and self.cards[j].checkBingo():
                     self.cards[j].won = True
                     last_win = j
-                    
-            if len(self.cards) - self.numWinners() == 0:                
+
+            if len(self.cards) - self.numWinners() == 0: 
+                print ("Winner is "+str(last_win+1))
                 print (self.cards[last_win])
                 boardsum = self.cards[last_win].sumBoard()
                 print (f"{boardsum=}")

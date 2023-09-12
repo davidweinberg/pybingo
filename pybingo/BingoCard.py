@@ -47,7 +47,7 @@ class BingoCard:
             self.playBoard[x][y] = 'X'
             self.updateBingo(x,y)
             self.picked.append(val)
-            if self.checkBingo(): self.won = True
+            #if self.checkBingo(): self.won = True
         except KeyError:
             return
 
@@ -57,7 +57,7 @@ class BingoCard:
 
     def isWinner(self):
         "Checks if the card has won Bingo"
-        return (self.won)
+        return (self.checkBingo())
 
     def updateBingo(self, 
                     x:int, # x position 
